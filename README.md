@@ -33,6 +33,13 @@ network:    #set static ip add
 sudo netplan try 
 sudo netplan apply
 ```
+```bash
+nano /etc/hosts
+172.16.9.101 master
+172.16.9.202 worker01
+172.16.9.100 worker02
+```
+
 ### Step 2: Enable IPv4 Packet Forwarding
 
 #### sysctl params required by setup, params persist across reboots
