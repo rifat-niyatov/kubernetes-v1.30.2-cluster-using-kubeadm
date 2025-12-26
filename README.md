@@ -15,7 +15,6 @@ sudo swapon --show
 sudo swapoff -a  
 nano /etc/fstab 
 ```
-# set static ip add
 ```bash
 network:
   version: 2
