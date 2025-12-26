@@ -376,8 +376,7 @@ kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.31/net.yaml
 ### Step 11: Join Worker Nodes to the Cluster
 #### Run the command generated after initializing the master node on each worker node. For example:
 ```bash
-kubeadm join 192.168.122.100:6443 --token zcijug.ye3vrct74itrkesp \
-        --discovery-token-ca-cert-hash sha256:e9dd1a0638a5a1aa1850c16f4c9eeaa2e58d03f97fd0403f587c69502570c9cd
+kubeadm token create --print-join-command   
 ```
 ```bash
 kubectl label node worker01 node-role.kubernetes.io/worker=worker
