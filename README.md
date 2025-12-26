@@ -39,7 +39,10 @@ nano /etc/hosts
 172.16.9.202 worker01
 172.16.9.100 worker02
 ```
-
+```bash
+apt update
+sudo apt install -y apt-transport-https ca-certificates curl gpg
+```
 ### Step 2: Enable IPv4 Packet Forwarding
 
 #### sysctl params required by setup, params persist across reboots
