@@ -331,7 +331,7 @@ version = 2
   uid = 0
 ```
 
-### Step 8: Restart containerd and Check the Status
+### Step 8: Restart containerd and check the Status
 ```bash
 sudo systemctl restart containerd && systemctl status containerd
 ```
@@ -370,7 +370,7 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 ```bash
 #Apply the CNI YAML
-kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.30/net.yaml
+kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.31/net.yaml
 ```
 
 ### Step 11: Join Worker Nodes to the Cluster
