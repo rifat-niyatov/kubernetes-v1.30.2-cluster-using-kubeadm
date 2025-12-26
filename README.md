@@ -9,11 +9,12 @@
 
 ## Step-by-Step Installation
 
-### Step 1: Disable Swap on All Nodes and set static ip add
+### Step 1: Disable Swap on All Nodes and set static ip address
+```bash
 sudo swapon --show 
 sudo swapoff -a   # (ctrl+k to delete line into nano file)
 nano /etc/fstab (press enter and # with is to disable the swap)
-
+```
 # set static ip add
 network:
   version: 2
