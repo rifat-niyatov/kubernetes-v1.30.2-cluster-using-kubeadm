@@ -12,10 +12,11 @@
 ### Step 1: Disable Swap on All Nodes and set static ip address
 ```bash
 sudo swapon --show 
-sudo swapoff -a   # (ctrl+k to delete line into nano file)
-nano /etc/fstab (press enter and # with is to disable the swap)
+sudo swapoff -a  
+nano /etc/fstab 
 ```
 # set static ip add
+```bash
 network:
   version: 2
   renderer: networkd
@@ -29,7 +30,8 @@ network:
       nameservers:
           addresses: [8.8.8.8, 8.8.4.4]  
 sudo netplan try 
-sudo netplan apply 
+sudo netplan apply
+```
 ### Step 2: Enable IPv4 Packet Forwarding
 
 #### sysctl params required by setup, params persist across reboots
