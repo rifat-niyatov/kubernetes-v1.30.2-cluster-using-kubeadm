@@ -1,23 +1,34 @@
-# Kubernetes 1.30.2 Cluster Setup on Ubuntu 22.04 LTS
+# Kubernetes 1.31.2 Cluster Setup on Ubuntu 24.04 LTS
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/2XlI9qqed04/0.jpg)](https://www.youtube.com/watch?v=2XlI9qqed04)
-
-This guide provides step-by-step instructions to set up a Kubernetes 1.30.2 cluster on Ubuntu 22.04 LTS.
 
 ## Prerequisites
 
-- Ubuntu 22.04 LTS installed on all nodes.
+- Ubuntu 24.04 LTS installed on all nodes.
 - Access to the internet.
 - User with `sudo` privileges.
 
 ## Step-by-Step Installation
 
-### Step 1: Disable Swap on All Nodes
+### Step 1: Disable Swap on All Nodes and set static ip add
+sudo swapon --show 
+sudo swapoff -a   # (ctrl+k to delete line into nano file)
+nano /etc/fstab (press enter and # with is to disable the swap)
 
-```bash
-swapoff -a
-sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-```
-
+# set static ip add
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp6s18:
+      addresses:
+        - 172.16.9.234/24
+      routes:
+        - to: default
+          via: 172.16.9.254
+      nameservers:
+          addresses: [8.8.8.8, 8.8.4.4]  
+sudo netplan try 
+sudo netplan apply 
 ### Step 2: Enable IPv4 Packet Forwarding
 
 #### sysctl params required by setup, params persist across reboots
