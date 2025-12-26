@@ -16,7 +16,7 @@ sudo swapoff -a
 nano /etc/fstab 
 ```
 ```bash
-network:
+network:    #set static ip add 
   version: 2
   renderer: networkd
   ethernets:
