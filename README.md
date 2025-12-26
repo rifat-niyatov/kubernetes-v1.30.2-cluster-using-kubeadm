@@ -383,3 +383,8 @@ kubeadm join 192.168.122.100:6443 --token zcijug.ye3vrct74itrkesp \
 kubectl label node worker01 node-role.kubernetes.io/worker=worker
 kubectl label node worker02 node-role.kubernetes.io/worker=worker
 ```
+```bash
+mkdir -p /home/rifat/.kube
+sudo cp -i /etc/kubernetes/admin.conf /home/rifat/.kube/config
+sudo chown rifat:rifat /home/rifat/.kube/config
+
