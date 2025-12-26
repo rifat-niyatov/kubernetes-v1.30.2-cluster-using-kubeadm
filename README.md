@@ -27,7 +27,9 @@ network:
         - to: default
           via: 172.16.9.254
       nameservers:
-          addresses: [8.8.8.8, 8.8.4.4]  
+          addresses: [8.8.8.8, 8.8.4.4]
+```
+```bash
 sudo netplan try 
 sudo netplan apply
 ```
