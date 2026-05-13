@@ -353,7 +353,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ### Step 10: Initialize the Cluster and Install CNI (only master node)
 ```bash
 sudo kubeadm config images pull
-sudo kubeadm init
+sudo kubeadm init --pod-network-cidr=10.10.1.0/24   # set up new ip add you can change other ip add 
 ```
 #### After Initialzing the Cluster Connect to it and apply the CNI yaml (We're using Weave CNI in this guide)
 
