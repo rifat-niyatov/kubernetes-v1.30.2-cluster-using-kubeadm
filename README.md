@@ -43,7 +43,7 @@ nano /etc/hosts
 apt update
 sudo apt install -y apt-transport-https ca-certificates curl gpg
 ```
-### Step 2: Enable IPv4 Packet Forwarding
+### Step 2: Enable IPv4 Packet Forwarding for all Nodes
 
 #### sysctl params required by setup, params persist across reboots
 ```bash
@@ -57,12 +57,12 @@ EOF
 sudo sysctl --system
 ```
 
-### Step 3: Verify IPv4 Packet Forwarding
+### Step 3: Verify IPv4 Packet Forwarding on all Nodes
 ```bash
 sysctl net.ipv4.ip_forward
 ```
 
-### Step 4: Install containerd
+### Step 4: Install containerd on all Nodes 
 ```bash
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -79,14 +79,14 @@ echo \
 sudo apt-get update && sudo apt-get install containerd.io && systemctl enable --now containerd
 ```
 
-### Step 5: Install CNI Plugin
+### Step 5: Install CNI Plugin on all Nodes
 ```bash
 wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz
 mkdir -p /opt/cni/bin
 tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.0.tgz
 ```
 
-### Step 6: Forward IPv4 and Configure iptables
+### Step 6: Forward IPv4 and Configure iptables on all Nodes
 ```bash
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
@@ -107,7 +107,7 @@ modprobe br_netfilter
 sysctl -p /etc/sysctl.conf
 ```
 
-### Step 7: Modify containerd Configuration for systemd Support
+### Step 7: Modify containerd Configuration for systemd Support on all Nodes 
 ```bash
 sudo nano /etc/containerd/config.toml
 ```
@@ -331,12 +331,12 @@ version = 2
   uid = 0
 ```
 
-### Step 8: Restart containerd and check the Status
+### Step 8: Restart containerd and check the Status on all Nodes 
 ```bash
 sudo systemctl restart containerd && systemctl status containerd
 ```
 
-### Step 9: Install kubeadm, kubelet, and kubectl
+### Step 9: Install kubeadm, kubelet, and kubectl on all Nodes 
 ```bash
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
