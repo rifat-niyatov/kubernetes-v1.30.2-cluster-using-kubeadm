@@ -81,9 +81,9 @@ sudo apt-get update && sudo apt-get install containerd.io && systemctl enable --
 
 ### Step 5: Install CNI Plugin on all Nodes
 ```bash
-wget https://github.com/containernetworking/plugins/releases/download/v1.4.0/cni-plugins-linux-amd64-v1.4.0.tgz
+wget https://github.com/containernetworking/plugins/releases/download/v1.7.1/cni-plugins-linux-amd64-v1.7.1.tgz
 mkdir -p /opt/cni/bin
-tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.0.tgz
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.7.1.tgz
 ```
 
 ### Step 6: Forward IPv4 and Configure iptables on all Nodes
