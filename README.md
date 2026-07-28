@@ -16,7 +16,6 @@ sudo swapoff -a
 nano /etc/fstab 
 ```
 ```bash
-nano /ect/netplan/50-cloud-init.yaml
 network:    #set static ip add 
   version: 2
   renderer: networkd
